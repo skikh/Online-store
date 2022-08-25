@@ -3,6 +3,7 @@
 	&__top{
 		background: $mainDarkColor;
 		color: white;
+		height: 70px;
 	}
 }
 .top-header{
@@ -10,27 +11,46 @@
 		&__container{
 			display: flex;
 			justify-content: space-between;
+			gap: 20px;
+			padding: 25px 0 25px 0;
 		}
 
 		&__menu{
-
+			flex: 1 1 auto;
+			font-weight: 600;
 		}
 
 		&__user{
-			
+			display: flex;
+			justify-content: space-between;
+			gap: 10px;
+			font-weight: 600;
 		}
 
 }
+
+.icon-user{
+	font-size: em(100);
+}
+
 .menu{
 
 
-		&__body{}
+		&__body{
+			font-size: 16px;
+		}
 
-		&__list{}
+		&__list{
+			display: flex;
+			flex-wrap: wrap;
+			@include adaptiveValue("gap", 60, 20);
+		}
 
 		&__item{}
 
-		&__link{}
+		&__link{
+			line-height: math.div(20,16);
+		}
 
 		&__icon{}
 
@@ -43,7 +63,7 @@
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -62,7 +82,7 @@
 			position: absolute;
 			width: 100%;
 			height: rem(2);
-			background-color: #000;
+			background-color: #fff;
 		}
 		&::before {
 			top: 0;
@@ -91,4 +111,4 @@
 		}
 	}
 }
-*/
+
