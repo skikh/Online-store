@@ -1,91 +1,43 @@
 //====================================================================================================
 .header{
-	color: $mainColor;
+	&__top{
+		background: $mainDarkColor;
+		color: white;
+	}
+}
+.top-header{
+
 		&__container{
 			display: flex;
-			align-items: center;
 			justify-content: space-between;
-			gap: 20px;
+		}
+
+		&__menu{
+
+		}
+
+		&__user{
 			
 		}
 
-		// .header__logo
-
-		&__logo{}
-
-
-		// .header__catalog
-
-		&__catalog{}
-
-
-		// .header__search
-
-		&__search{}
-
-
-		// .header__menu
-
-		&__menu{}
-
-
-		// .header__user
-
-		&__user{}
-
 }
-.catalog{
-
-		// .catalog__menu
-
-		&__full{}
-
-
-		// .catalog__burger
-
-		&__burger{}
-
-
-		// .catalog__logo
-
-		&__logo{}
-
-}
-
 .menu{
+
 
 		&__body{}
 
-		// .menu__list
-
-		&__list{
-			display: flex;
-			@include adaptiveValue("gap", 24, 16)
-			
-		}
-
-
-		// .menu__item
+		&__list{}
 
 		&__item{}
 
+		&__link{}
 
-		// .menu__link
+		&__icon{}
 
-		&__link{
-			font-size: rem(12);
-			&-icon{
-				font-size: 100px;
-			}
-		}
+		&_icon-user{}
+
 }
-
-._icon-heart{
-	font-size: rem(20);
-	line-height:inherit;
-}
-
-
+.icon-menu{}
 
 
 //====================================================================================================
