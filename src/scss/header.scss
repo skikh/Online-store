@@ -77,13 +77,13 @@
 
 		&__search{
 			@include adaptiveValue("padding-left", 160, 20);
+			padding-right: rem(20);
 			flex: 1 1 auto;
 		}
 		&__actions{ 
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			max-width: rem(500);
 			@include adaptiveValue("column-gap", 55, 20);
 		}
 
@@ -91,17 +91,48 @@
 
 .logo{}
 
+.search-header{
+	width: rem(377);
+	background-color: rgba(7, 7, 7, 0.03);
+	border-radius: rem(3);
+	border: 1px solid rgba(4, 4, 4, 0.5);
+	position: relative;
+		&__button{
+			position: absolute;
+			background-color: transparent;
+			color: rgba(4, 4, 4, 0.5);
+			height: rem(41);
+			width: rem(41);
+			justify-content: center;
+			align-items: center;
+			top: 0;
+			left: rem(9);
+			font-size: rem(24);
+		}
+
+		&__input{
+			background-color: transparent;
+			height: rem(41);
+			padding: 0px rem(20) 0px rem(50);
+			width: 100%;
+			color: $mainColor;
+			&::placeholder{
+			color: rgba(4, 4, 4, 0.5);
+			}
+		}
+}
+
 
 .actions-header{
 
-		// .actions-header__location
-
 		&__location{
-			display: flex;
+			display: inline-flex;
 			align-items: center;
+			font-weight: 600;
 			&::before{
 				font-size: rem(28);
-				margin-right: em(14,28);
+				margin-right: em(10,24);
+				color: black;
 			}
 		}
 
