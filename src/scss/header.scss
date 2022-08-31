@@ -113,6 +113,95 @@
 }
 
 
+.middle-header{
+
+		// .middle-header__actions
+
+		&__actions{}
+
+		// .middle-header__location
+
+		&__location{}
+
+
+		// .middle-header__phones
+
+		&__phones{}
+
+
+		// .middle-header__favorite
+
+		&__favorite{}
+
+
+		// .middle-header__cart
+
+		&__cart{}
+}
+
+
+.actions-header{}
+
+.location-header{}
+
+.phones-header{
+
+		// .phones-header__items
+
+		&__items{}
+
+
+		// .phones-header__phone
+
+		&__phone{}
+
+
+		// .phones-header__item
+
+		&__item{}
+
+
+		// .phones-header__arrow
+
+		&__arrow{}
+
+
+		// .phones-header__body
+
+		&__body{}
+
+
+		// .phones-header__callback
+
+		&__callback{}
+}
+
+.favorite-header{}
+
+.cart-header{
+
+		// .cart-header__icon
+
+		&__icon{}
+
+
+		// .cart-header__body
+
+		&__body{}
+
+
+		// .cart-header__summ
+
+		&__summ{}
+
+
+		// .cart-header__link
+
+		&__link{}
+}
+
+
+
 
 
 

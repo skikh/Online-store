@@ -47,7 +47,28 @@
           >Москва</a
         >
         <div class="middle-header__phones phones-header">
-          <div class="phones-header__items"></div>
+          <div data-spollers class="phones-header__items">
+            <a href="" class="phones-header__phone">8-800-777-49-67</a>
+            <div class="phones-header__item">
+              <button
+                type="button"
+                data-spoller
+                class="phones-header__arrow _icon-chevron-down"
+              ></button>
+              <ul class="phones-header__body">
+                <li>
+                  <a href="" class="phones-header__phone">8-800-777-49-68</a>
+                </li>
+                <li>
+                  <a href="" class="phones-header__phone">8-800-777-49-69</a>
+                </li>
+                <li>
+                  <a href="" class="phones-header__phone">8-800-777-49-64</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <button type="submit" class="phones-header__callback">
             Заказать звонок
           </button>
@@ -56,7 +77,15 @@
           href=""
           class="middle-header__favorite favorite-header _icon-heart"
         ></a>
-        <div class="middle-header__cart cart-header _icon-shopping-cart"></div>
+        <div class="middle-header__cart cart-header">
+          <div class="cart-header__icon _icon-shopping-cart">
+            <span>0</span>
+          </div>
+          <div class="cart-header__body">
+            <div class="cart-header__summ">0 р.</div>
+            <div class="cart-header__link">Оформить заказ</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
