@@ -77,70 +77,50 @@
 
 		&__search{
 			@include adaptiveValue("padding-left", 160, 20);
+			flex: 1 1 auto;
+		}
+		&__actions{ 
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: rem(500);
+			@include adaptiveValue("column-gap", 55, 20);
 		}
 
 }
 
 .logo{}
 
-.search-header{
-	background-color: rgba(7, 7, 7, 0.03);
-	border-radius: rem(3);
-	border: 1px solid rgba(4, 4, 4, 0.5);
-	position: relative;
-		&__button{
-			position: absolute;
-			background-color: transparent;
-			color: rgba(4, 4, 4, 0.5);
-			height: rem(41);
-			width: rem(41);
-			justify-content: center;
-			align-items: center;
-			top: 0;
-			left: rem(9);
-			font-size: rem(24);
-		}
 
-		&__input{
-			background-color: transparent;
-			height: rem(41);
-			padding: 0px rem(20) 0px rem(50);
-			color: $mainColor;
-			&::placeholder{
-				color: rgba(4, 4, 4, 0.5);
+.actions-header{
+
+		// .actions-header__location
+
+		&__location{
+			display: flex;
+			align-items: center;
+			&::before{
+				font-size: rem(28);
+				margin-right: em(14,28);
 			}
 		}
-}
 
 
-.middle-header{
+		// .actions-header__phones
 
-		// .middle-header__actions
-
-		&__actions{}
-
-		// .middle-header__location
-
-		&__location{}
+		&__phones{
+		}
 
 
-		// .middle-header__phones
-
-		&__phones{}
-
-
-		// .middle-header__favorite
+		// .actions-header__favorite
 
 		&__favorite{}
 
 
-		// .middle-header__cart
+		// .actions-header__cart
 
 		&__cart{}
 }
-
-
-.actions-header{}
 
 .location-header{}
 
@@ -148,7 +128,9 @@
 
 		// .phones-header__items
 
-		&__items{}
+		&__items{
+
+		}
 
 
 		// .phones-header__phone
@@ -179,10 +161,22 @@
 .favorite-header{}
 
 .cart-header{
-
-		// .cart-header__icon
-
-		&__icon{}
+	display: flex;	
+		&__icon{
+			position: relative;
+			font-size: rem(28);
+			& span{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				background-color: #E8AA31;
+				color:#fff;
+				font-style: rem(8);
+				font-weight: 500;
+				line-height: 9,75px;
+				border-radius: 50%;
+			}
+		}
 
 
 		// .cart-header__body
