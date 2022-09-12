@@ -166,22 +166,45 @@
 
 		// .phones-header__phone
 
-		&__phone{}
+		&__phone{
+			font-weight: 600;
+			line-height: math.div(22,18);
+		}
 
 
 		// .phones-header__item
 
-		&__item{}
+		&__item{
+			position: relative;
+		}
 
 
 		// .phones-header__arrow
 
-		&__arrow{}
+		&__arrow{
+			font-size: rem(32);
+			font-weight:900;
+			color: $mainButtonColor;
+			margin: 0px 0px 0px rem(17);
+			
+		}
 
 
 		// .phones-header__body
 
-		&__body{}
+		&__list{
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			left: 0;
+			background-color: #fff;
+			border-radius: rem(20);
+			box-shadow: 20px;
+			padding: rem(15);
+			& li{
+				margin-bottom: em(5,18);
+			}
+		}
 
 
 		// .phones-header__callback
@@ -200,7 +223,7 @@
 				position: absolute;
 				top: 0px;
 				right: 0px;
-				background-color: #E8AA31;
+				background-color: $mainButtonColor;
 				color:#fff;
 				font-style: rem(8);
 				font-weight: 500;
