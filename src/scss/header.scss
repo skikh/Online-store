@@ -145,7 +145,9 @@
 
 		// .actions-header__favorite
 
-		&__favorite{}
+		&__favorite{
+			font-size: rem(28);
+		}
 
 
 		// .actions-header__cart
@@ -169,6 +171,7 @@
 		&__phone{
 			font-weight: 600;
 			line-height: math.div(22,18);
+			white-space: nowrap;
 		}
 
 
@@ -182,11 +185,13 @@
 		// .phones-header__arrow
 
 		&__arrow{
-			font-size: rem(32);
-			font-weight:900;
+			font-size: rem(30);
 			color: $mainButtonColor;
-			margin: 0px 0px 0px rem(17);
-			
+			margin-right: em(10,24);
+			transition: all 0.3s ease 0s;
+			&._spoller-active{
+				transform: rotate(-180deg);
+			}					
 		}
 
 
@@ -199,7 +204,7 @@
 			left: 0;
 			background-color: #fff;
 			border-radius: rem(20);
-			box-shadow: 20px;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 			padding: rem(15);
 			& li{
 				margin-bottom: em(5,18);
@@ -209,25 +214,35 @@
 
 		// .phones-header__callback
 
-		&__callback{}
+		&__callback{
+			color: $mainButtonColor;
+			font-weight: 700;
+			line-height: math.div(22,18);
+		}
 }
 
 .favorite-header{}
 
 .cart-header{
 	display: flex;	
+	align-items: center;
 		&__icon{
+			flex: 0 0 35px;
 			position: relative;
 			font-size: rem(28);
+			margin-right: em(10,24);
 			& span{
 				position: absolute;
+				font-size: rem(12);
+				width: rem(14);
+				height: rem(14);
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				top: 0px;
 				right: 0px;
 				background-color: $mainButtonColor;
 				color:#fff;
-				font-style: rem(8);
-				font-weight: 500;
-				line-height: 9,75px;
 				border-radius: 50%;
 			}
 		}
@@ -235,17 +250,25 @@
 
 		// .cart-header__body
 
-		&__body{}
+		&__body{
+			line-height: math.div(20,16);
+			font-size: rem(16);
+		}
 
 
 		// .cart-header__summ
 
-		&__summ{}
+		&__summ{
+			font-weight: 500;
+		}
 
 
 		// .cart-header__link
 
-		&__link{}
+		&__link{
+			color: $mainButtonColor;
+			white-space: nowrap;
+		}
 }
 
 
