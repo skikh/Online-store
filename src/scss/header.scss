@@ -8,6 +8,11 @@
 		background: $mainBgColor;
 		color: white;
 	}
+
+	&__low{
+		background: $mainDarkColor;
+		color: white;
+	}
 }
 .top-header{
 	padding: rem(10) 0;
@@ -269,6 +274,95 @@
 			color: $mainButtonColor;
 			white-space: nowrap;
 		}
+}
+
+
+.low-header{
+	padding: rem(10), 0;
+		&__container{
+			display: flex;
+			flex-direction: column;
+			min-height: 70px;
+		}
+
+		&__catalog{}
+
+		&__sub-catalog{}
+}
+
+.catalog{
+		&__body{
+			
+		}
+
+
+		// .catalog__list
+
+		&__list{
+			display: flex;
+			align-items:center;
+			flex: 1 1 auto;
+			gap: rem(116);
+			line-height: math.div(22,18);
+		}
+
+
+		// .catalog__item
+
+		&__item{
+			flex: 0 0 auto;
+			font-weight: 500;
+		}
+
+
+		// .catalog__link
+
+		&__link{}
+}
+
+
+.sub-catalog{
+
+		// .sub-catalog__block
+
+		&__block{}
+
+
+		// .sub-catalog__column
+
+		&__column{}
+
+		&__category{
+			margin: rem(23) 0px rem(23) 0px;
+			font-weight: 700;
+		}
+
+
+		// .sub-catalog__body
+
+		&__body{}
+
+
+		// .sub-catalog__list
+
+		&__list{
+			display: flex;
+			flex-direction: column;
+			gap: rem(20);
+			line-height: math.div(22,18);
+			font-weight: 500;
+		}
+
+
+		// .sub-catalog__item
+
+		&__item{}
+
+
+		// .sub-catalog__link
+
+		&__link{}
+
 }
 
 
