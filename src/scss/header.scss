@@ -25,7 +25,6 @@
 
 		&__menu{
 			flex: 1 1 auto;
-			font-weight: 600;
 		}
 
 		&__user{
@@ -37,9 +36,17 @@
 				font-size: rem(28);
 				margin-right: em(15,28);
 			}
+			@media (any-hover: hover){
+				&:hover{
+					transform: translate3d(0, 0.2em, 0);
+					opacity: 0.8;
+					visibility: visible;
+					transition: 0.5s;
+			}
 		}
-
-}
+			}
+		}
+		
 
 .menu{
 
@@ -58,9 +65,31 @@
 
 		&__link{
 			font-size: rem(16);
-			line-height: math.div(20,16);
+			line-height: math.div(20,16);			
+			font-weight: 500;
+			position: relative;
+			&::after{
+				content: "";
+				visibility: hidden;
+				opacity: 0;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 1px;
+				background-color: $mainButtonColor;
+				width: 100%;
+			}
+				@media (any-hover: hover){
+					&:hover{
+						&::after{
+						transform: translate3d(0, 0.2em, 0);
+						opacity: 1;
+						visibility: visible;
+						transition: 0.5s;
+					}
+				}
+			}
 		}
-
 		&__icon{}
 
 		&_icon-user{}
@@ -160,7 +189,18 @@
 		&__cart{}
 }
 
-.location-header{}
+.location-header{
+	font-size: rem(18);
+	line-height: math.div(22,18);
+	@media (any-hover: hover){
+		&:hover{
+			transform: translate3d(0, 0.2em, 0);
+			opacity: 0.8;
+			visibility: visible;
+			transition: 0.5s;
+	}
+}
+}
 
 .phones-header{
 
@@ -177,6 +217,7 @@
 			font-weight: 600;
 			line-height: math.div(22,18);
 			white-space: nowrap;
+			
 		}
 
 
@@ -223,10 +264,27 @@
 			color: $mainButtonColor;
 			font-weight: 700;
 			line-height: math.div(22,18);
+			@media (any-hover: hover){
+				&:hover{
+					transform: translate3d(0, 0.2em, 0);
+					opacity: 0.8;
+					visibility: visible;
+					transition: 0.5s;
+			}
+		}
 		}
 }
 
-.favorite-header{}
+.favorite-header{
+	@media (any-hover: hover){
+		&:hover{
+			transform: translate3d(0, 0.2em, 0);
+			opacity: 0,8;
+			visibility: visible;
+			transition: 0.5s;
+	}
+}
+}
 
 .cart-header{
 	display: flex;	
@@ -326,7 +384,18 @@
 				height: 1px;
 				background-color: $mainButtonColor;
 				width: 100%;
+				opacity: 0;
+				visibility: hidden;
 			}
+			@media (any-hover: hover){
+				&:hover{
+					&::after{
+					opacity: 1;
+					visibility: visible;
+					transition: 0.5s;
+				}
+			}
+		}
 		}
 }
 
@@ -359,7 +428,13 @@
 			line-height: math.div(20,16);
 			font-weight: 700;
 			padding: rem(30) 0;
+			@media (any-hover: hover){
+				&:hover{
+					text-decoration: underline;
+				}
+			}
 		}
+		
 
 
 		// .sub-catalog__body
@@ -370,12 +445,8 @@
 		// .sub-catalog__list
 
 		&__list{
-			font-size: rem(16);
-			display: flex;
-			flex-direction: column;
+			display: grid;
 			gap: rem(20);
-			line-height: math.div(22,18);
-			font-weight: 500;
 		}
 
 
@@ -387,6 +458,9 @@
 		// .sub-catalog__link
 
 		&__link{
+			font-size: rem(16);
+			line-height: math.div(20,16);
+			
 
 		}
 
