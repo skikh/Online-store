@@ -54,6 +54,11 @@
 		&__body{
 		}
 
+		@media (max-width: $tablet){
+			flex: 0 0 rem(30);
+			display: block;
+		}
+
 		&__list{
 			display: flex;
 			flex-wrap: wrap;
@@ -602,10 +607,10 @@
 
 .icon-menu {
 	display: none;
-	@media (max-width: $mobile) {
+	@media (max-width: $tablet) {
 		display: block;
 		position: relative;
-		flex: 0 0 30px;
+		width: 30px;
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
