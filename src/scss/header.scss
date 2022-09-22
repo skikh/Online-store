@@ -60,41 +60,66 @@
 			flex-wrap: wrap;
 			row-gap: rem(5);
 			@include adaptiveValue("column-gap", 60, 20, 1600, 1000, 1);
+			@media (max-width:$tablet){
+				flex-direction: column;
+				row-gap: rem(14);
+				
+		  }
 		}
 
 		&__item{}
+
+		
 
 		&__link{
 			font-size: rem(16);
 			line-height: math.div(20,16);			
 			font-weight: 500;
 			position: relative;
-			&::after{
-				content: "";
-				visibility: hidden;
-				opacity: 0;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				height: 1px;
-				background-color: $mainOrange;
-				width: 100%;
-			}
-				@media (any-hover: hover){
-					&:hover{
-						&::after{
-						transform: translate3d(0, 0.2em, 0);
-						opacity: 1;
-						visibility: visible;
-						transition: 0.5s;
+			@media (min-width:$tablet){
+				&::after{
+					content: "";
+					visibility: hidden;
+					opacity: 0;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					height: 1px;
+					background-color: $mainOrange;
+					width: 100%;
+				}
+					@media (any-hover: hover){
+						&:hover{
+							&::after{
+							transform: translate3d(0, 0.2em, 0);
+							opacity: 1;
+							visibility: visible;
+							transition: 0.5s;
+						}
 					}
+				}				  
+			}
+			&_catalog {
+				@media (min-width: $tablet) {
+					display: none;
+			}
+				display: flex;
+				align-items: center;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+				&::before {
+					flex: 0 0 14px;
+					height: 14px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: rem(40);
 				}
 			}
+			@media (max-width: $tablet) {
+				@include adaptiveValue("font-size", 30, 20, 992, 320, 1);
+			}
 		}
-		&__icon{}
-
-		&_icon-user{}
-
 }
 
 .middle-header{
@@ -619,6 +644,44 @@
 //====================================================================================================
 
 //Burger
+.menu {
+	// .menu__body
+	&__body {
+		@media (max-width: $tablet) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			overflow: auto;
+			background-color: $mainDarkColor;
+			padding: rem(100) rem(15) rem(50) rem(15);
+			transition: left 0.3s ease 0s;
+			z-index: 4;
+			&::before {
+				content:'';
+				position: fixed;
+				width: 100%;
+				height: 70px;
+				left: -100%;
+				top: 0;
+				background-color: $mainDarkColor;
+			}
+			.menu-open & {
+				left: 0;
+				&::before {
+					content:'';
+					left: 0;
+				}
+			}
+		}
+	}
+	@media (max-width: $tablet) {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: flex-end;
+	}
+}
 
 .icon-menu {
 	@media (max-width: $tablet) {
