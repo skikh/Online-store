@@ -25,6 +25,9 @@
 
 		&__menu{
 			flex: 1 1 auto;
+			@media (max-width: $tablet) {
+				display: none;
+		}
 		}
 
 		&__user{
@@ -44,6 +47,13 @@
 					transition: 0.5s;
 			}
 		}
+		@media (max-width:$tablet){
+			z-index: 10; 
+			& span{display:none;};
+			&::before{
+				margin-right: 0;
+			}
+	    }
 			}
 		}
 		
@@ -142,8 +152,8 @@
 			@include adaptiveValue("padding-left", 160, 20, 1620, 1200, 1);
 			padding-right: rem(20);
 			flex: 1 1 auto;
-			@media (max-width: $tablet) {
-				width: 50%;
+			@media (max-width:$tablet){
+				padding: 0;
 			}
 		}
 		
@@ -158,7 +168,7 @@
 
 .logo{
 	@media (max-width: $tablet) {
-		width: 50%;
+		width: 100%;
 		&__img{
 			display: flex;
 			justify-content: center;
@@ -197,15 +207,25 @@
 			color: rgba(4, 4, 4, 0.5);
 			}
 		}
+		@media (max-width:$tablet){
+			z-index: 10; 
+			border: 1px solid #fff;
+			&__button{
+				color: #fff;
+			}
+			&__input{
+				color: #fff;
+				&::placeholder{
+					color: #fff;
+					}
+			}
+		}
 }
 
 
 .actions-header{
 	display: flex;
 	align-items: center;			
-	@media (max-width: $tablet) {
-		display: none;
-	}
 		&__location{
 			display: inline-flex;
 			align-items: center;
@@ -239,11 +259,19 @@
 		&__cart{
 			@include adaptiveValue("colum-gap",30,15, 1620, 1200, 1);
 		}
+
+		@media (max-width:$tablet){
+			z-index: 10; 
+		}
 }
 
 .location-header{
 	font-size: rem(18);
 	line-height: math.div(22,18);
+	@media (max-width:$tablet){
+		display: none;
+		  
+	}
 	@media (any-hover: hover){
 		&:hover{
 			transform: translate3d(0, 0.2em, 0);
@@ -261,6 +289,10 @@
 		&__items{
 			white-space: nowrap;
 			margin-right: 20px;
+			@media (max-width:$tablet){
+				margin-right: 0;
+				  
+			}
 		}
 
 
@@ -269,7 +301,21 @@
 		&__phone{
 			font-weight: 600;
 			line-height: math.div(22,18);
-			white-space: nowrap;			
+			white-space: nowrap;
+			&::before{
+				@extend %ic;
+				@extend ._icon-phone;
+				display: none;
+			}
+			@media (max-width:$mobile){
+				  &::before{
+					display: block;
+					font-size: rem(28);
+				  }
+				  & span{
+					display: none;
+				  }
+			}			
 		}
 
 
@@ -291,7 +337,11 @@
 			bottom: -3px;
 			&._spoller-active{
 				transform: rotate(-180deg);
-			}					
+			}	
+			@media (max-width:$tablet){
+				display: none;
+				  
+			}				
 		}
 
 
@@ -315,6 +365,10 @@
 			color: $mainOrange;
 			font-weight: 700;
 			line-height: math.div(22,18);
+			@media (max-width:$tablet){
+				display: none;
+				  
+			}
 			@media (any-hover: hover){
 				&:hover{
 					transform: translate3d(0, 0.2em, 0);
