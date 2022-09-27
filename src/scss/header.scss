@@ -490,12 +490,15 @@
 		&[data-parent] {
 			&::before {
 				@extend %ic;
-				@extend ._icon-chevron-down;
+				@extend ._icon-chevron-right;
 				display: none; 
 				@media (max-width: $tablet) {
-					transform: translateY(rem(5)) rotate(-90deg);
-					display: block;
-					font-size: rem(10);
+					flex: 0 0 14px;
+					height: 14px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: rem(40);
 				}
 			}
 			@media (max-width: $tablet) {
@@ -779,3 +782,4 @@
 		}
 	}
 }
+

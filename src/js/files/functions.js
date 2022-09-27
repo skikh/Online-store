@@ -175,8 +175,16 @@ export let bodyLock = (delay = 500) => {
 }
 // Модуль работы со спойлерами =======================================================================================================================================================================================================================
 /*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-spojlery.html
-Сниппет (HTML): spollers
+Для родителя слойлеров пишем атрибут data-spollers
+Для заголовков слойлеров пишем атрибут data-spoller
+Если нужно включать\выключать работу спойлеров на разных размерах экранов
+пишем параметры ширины и типа брейкпоинта.
+
+Например: 
+data-spollers="992,max" - спойлеры будут работать только на экранах меньше или равно 992px
+data-spollers="768,min" - спойлеры будут работать только на экранах больше или равно 768px
+
+Если нужно что бы в блоке открывался болько один слойлер добавляем атрибут data-one-spoller
 */
 export function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');
@@ -200,6 +208,7 @@ export function spollers() {
 				initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 			});
 		}
+
 		// Инициализация
 		function initSpollers(spollersArray, matchMedia = false) {
 			spollersArray.forEach(spollersBlock => {
@@ -238,47 +247,40 @@ export function spollers() {
 			if (el.closest('[data-spoller]')) {
 				const spollerTitle = el.closest('[data-spoller]');
 				const spollersBlock = spollerTitle.closest('[data-spollers]');
-				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
-				const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false;
 				if (!spollersBlock.querySelectorAll('._slide').length) {
 					if (oneSpoller && !spollerTitle.classList.contains('_spoller-active')) {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
-					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+					_slideToggle(spollerTitle.nextElementSibling, 500);
 				}
 				e.preventDefault();
 			}
 		}
 		function hideSpollersBody(spollersBlock) {
 			const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._spoller-active');
-			const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
-			if (spollerActiveTitle && !spollersBlock.querySelectorAll('._slide').length) {
+			if (spollerActiveTitle) {
 				spollerActiveTitle.classList.remove('_spoller-active');
-				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
+				_slideUp(spollerActiveTitle.nextElementSibling, 500);
 			}
-		}
-		// Закрытие при клике вне спойлера
-		const spollersClose = document.querySelectorAll('[data-spoller-close]');
-		if (spollersClose.length) {
-			document.addEventListener("click", function (e) {
-				const el = e.target;
-				if (!el.closest('[data-spollers]')) {
-					spollersClose.forEach(spollerClose => {
-						const spollersBlock = spollerClose.closest('[data-spollers]');
-						const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
-						spollerClose.classList.remove('_spoller-active');
-						_slideUp(spollerClose.nextElementSibling, spollerSpeed);
-					});
-				}
-			});
 		}
 	}
 }
 // Модуь работы с табами =======================================================================================================================================================================================================================
 /*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-taby.html
-Сниппет (HTML): tabs
+Для родителя табов пишем атрибут data-tabs
+Для родителя заголовков табов пишем атрибут data-tabs-titles
+Для родителя блоков табов пишем атрибут data-tabs-body
+Для родителя блоков табов можно указать data-tabs-hash, это втключит добавление хеша
+
+Если нужно чтобы табы открывались с анимацией 
+добавляем к data-tabs data-tabs-animate
+По умолчанию, скорость анимации 500ms, 
+указать свою скорость можно так: data-tabs-animate="1000"
+
+Если нужно чтобы табы превращались в "спойлеры", на неком размере экранов, пишем параметры ширины.
+Например: data-tabs="992" - табы будут превращаться в спойлеры на экранах меньше или равно 992px
 */
 export function tabs() {
 	const tabs = document.querySelectorAll('[data-tabs]');
@@ -406,16 +408,19 @@ export function tabs() {
 	}
 }
 // Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/menu-burger.html
-Сниппет (HTML): menu
-*/
 export function menuInit() {
-	if (document.querySelector(".icon-menu")) {
-		document.addEventListener("click", function (e) {
-			if (bodyLockStatus && e.target.closest('.icon-menu')) {
+	let iconMenu = document.querySelector(".icon-menu");
+	if (iconMenu) {
+		iconMenu.addEventListener("click", function (e) {
+			if (bodyLockStatus) {
 				bodyLockToggle();
 				document.documentElement.classList.toggle("menu-open");
+				if (document.documentElement.classList.contains("catalog-open")) {
+					document.documentElement.classList.remove("catalog-open");
+				}
+				if (document.documentElement.classList.contains("sub-menu-open")) {
+					document.documentElement.classList.remove('sub-menu-open');
+				}
 			}
 		});
 	};
@@ -430,7 +435,11 @@ export function menuClose() {
 }
 // Модуль "показать еще" =======================================================================================================================================================================================================================
 /*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-pokazat-eshhjo.html
+Документация по работе в шаблоне:
+data-showmore-media = "768,min"
+data-showmore="size/items"
+data-showmore-content="размер/кол-во"
+data-showmore-button="скорость"
 Сниппет (HTML): showmore
 */
 export function showMore() {
@@ -509,15 +518,9 @@ export function showMore() {
 			return hiddenHeight;
 		}
 		function getOriginalHeight(showMoreContent) {
-			let parentHidden;
 			let hiddenHeight = showMoreContent.offsetHeight;
 			showMoreContent.style.removeProperty('height');
-			if (showMoreContent.closest(`[hidden]`)) {
-				parentHidden = showMoreContent.closest(`[hidden]`);
-				parentHidden.hidden = false;
-			}
 			let originalHeight = showMoreContent.offsetHeight;
-			parentHidden ? parentHidden.hidden = true : null;
 			showMoreContent.style.height = `${hiddenHeight}px`;
 			return originalHeight;
 		}
@@ -546,6 +549,7 @@ export function showMore() {
 //================================================================================================================================================================================================================================================================================================================
 // Прочие полезные функции ================================================================================================================================================================================================================================================================================================================
 //================================================================================================================================================================================================================================================================================================================
+
 // FLS (Full Logging System)
 export function FLS(message) {
 	setTimeout(() => {
