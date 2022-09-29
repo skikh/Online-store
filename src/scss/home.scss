@@ -1,3 +1,95 @@
 //====================================================================================================
+.page {
+
+    // .page__main-block
+
+    &__main-block {}
+}
+.main-block {
+    background: url('@img/main-page/main-block/bg.jpg') center / cover no-repeat;
+    &__container {
+        @include adaptiveValue("padding-top", 40, 20);
+        @include adaptiveValue("padding-bottom", 60, 20);
+    }
+
+    // .main-block__body
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        color: #fff;
+    }
+
+    &__slider {}
+
+    // .main-block__swiper
+
+    &__swiper {}
+
+    // .main-block__slide
+
+    &__slide {}
+
+    // .main-block__media
+
+    &__media {}
+
+    // .main-block__low
+
+    &__low {}
+}
+.slide-main-block {
+    max-width: rem(1000);
+    &__content {}
+
+    // .slide-main-block__title
+
+    &__title {
+        font-size: rem(36);
+        font-weight: 500;
+        @include adaptiveValue("margin-bottom", 30, 10);
+    }
+
+    // .slide-main-block__text
+
+    &__text {
+        font-size: rem(20);
+        font-weight: 500;
+        @include adaptiveValue("margin-bottom", 60, 30);
+    }
+
+    // .slide-main-block__button
+
+    &__button {
+        @include adaptiveValue("margin-bottom", 60, 30);
+    }
+}
+.media-main-block {
+
+    // .media-main-block__image
+
+    &__image {}
+
+    // .media-main-block__tips
+
+    &__tips {}
+}
+.low-main-block {
+
+    // .low-main-block__adventage
+
+    &__adventage {}
+}
+.adventage {
+
+    // .adventage__img
+
+    &__img {}
+
+    // .adventage__text
+
+    &__text {}
+}
 
 //====================================================================================================
