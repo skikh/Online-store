@@ -69,7 +69,6 @@
 			display: flex;
 			flex-wrap: wrap;
 			row-gap: rem(5);
-			@include adaptiveValue("column-gap", 60, 20, 1600, 1000, 1);
 			@media (max-width:$tablet){
 				flex-direction: column;
 				row-gap: rem(14);
@@ -86,6 +85,7 @@
 			line-height: math.div(20,16);			
 			font-weight: 500;
 			position: relative;
+			@include adaptiveValue("padding-right", 60, 20, 1600, 1000, 1);
 			@media (min-width:$tablet){
 				&::after{
 					content: "";
@@ -184,6 +184,7 @@
 	border-radius: rem(3);
 	border: 1px solid rgba(4, 4, 4, 0.5);
 	position: relative;
+	max-width: rem(377);
 		&__button{
 			position: absolute;
 			background-color: transparent;
@@ -513,7 +514,6 @@
 			align-items: center;
 			text-align: center;			   
 			min-height: rem(70);
-			padding: 0px rem(10);
 		}
 		&::after{
 			content:'';
